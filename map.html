@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "icon" href ="icon2.png" type = "image/x-icon">
+    <title>Map</title>
+    <style>
+      #map {
+        height: 500px;
+        width: 100%;
+      }
+      .navigation {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #8b8383;
+        }
+
+        .navigation li {
+            float: left;
+        }
+
+        .navigation li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none
+        }
+
+        .navigation li a:hover {
+            background-color: #111;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="navigation">
+      <ul>
+          <li class="navigation"><img src="icon2.png" alt="WanderLust Ways" height="70px" width="70px" style="clip-path: circle(50%);"></li>
+          <li class="navigation"><a href="main.html">Home</a></li>
+          <li class="navigation"><a href="India.html">Destinations in India</a></li>
+          <li class="navigation"><a href="world.html">Destinations in World</a></li>
+          <li class="navigation"><a href="tovisit.html">Places to visit</a></li>
+          <li class="navigation"><a href="plan.html">Plan Outline</a></li>
+          <li class="navigation"><a href="travel.html">Travel Plan</a></li>
+        </ul> 
+      </div>
+    <h1>My Map</h1>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY4DKIcDv1_3SQpiOYEnKmdsIiZYuUGBY&callback=initMap"
+    async defer></script>
+    <script>
+      function initMap() {
+        var myLatLng = {lat: 20.5937, lng: 78.9629}; // Set initial position of the map
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 5, // Set the zoom level
+          center: myLatLng // Set the center of the map to the initial position
+        });
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'India' // Set the marker title
+        });
+      }
+    </script>
+  </body>
+</html>

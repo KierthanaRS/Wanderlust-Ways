@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places To visit</title>
+    <link rel = "icon" href ="icon2.png" type = "image/x-icon">
+    <style>
+        .navigation {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #8b8383;
+        }
+
+        .navigation li {
+            float: left;
+        }
+
+        .navigation li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none
+        }
+
+        .navigation li a:hover {
+            background-color: #111;
+        }
+        body{
+            margin:0;
+            min-width:250px;
+            background-image: url("taj.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .header {
+            background-color:rgb(167, 39, 199);;
+            padding: 40px 60px;
+            color: white;
+            text-align: center;
+        }
+        input {
+            margin: 0;
+            margin-top: -12px;
+            border: none;
+            border-radius: 0;
+            width: 75%;
+            padding: 10px;
+            float: left;
+            font-size: 16px;
+        }
+        .js-add {
+            padding: 10px;
+            width: 20%;
+            background: #f3eeee;
+            color: #968e8e;
+            float: left;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: -14px;
+        }
+        .js-add:hover {
+            background-color: #141414;
+        }
+        .js-list{
+            margin: 0;
+            padding: 0;
+            
+        }
+        .js-list li{
+            float: left;
+            padding: 12px 8px 12px 40px;
+            background-color: #111;
+            color: #f3eeee;
+            cursor: pointer;
+            position: relative;
+            font-size: 18px;
+            transition: 0.2s;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            width:97%;
+
+        }
+        .js-list li:hover{
+            background-color:rgb(222, 100, 226) ;
+            opacity: 0.5;
+        }
+        .js-list li:nth-child(odd) {
+            background-color: #f3eeee;
+            color: black;
+        }
+        .delete-todo-button {
+            background-color: rgb(167, 39, 199);
+            width:9%;
+            float: right;
+            color: white;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .clearbtn{
+            margin-top: 5%;
+            margin-left: 40%;
+            padding: 10px;
+            width: 20%;
+            background: #f3eeee;
+            color: #968e8e;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .clearbtn:hover{
+            background-color: #111;
+            opacity: 0.5;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="navigation">
+    <ul>
+        <li class="navigation"><img src="icon2.png" alt="WanderLust Ways" height="70px" width="70px" style="clip-path: circle(50%);"></li>
+        <li class="navigation"><a href="main.html">Home</a></li>
+        <li class="navigation"><a href="India.html">Destinations in India</a></li>
+        <li class="navigation"><a href="world.html">Destinations in World</a></li>
+        <li class="navigation"><a href="map.html">Map</a></li>
+        <li class="navigation"><a href="plan.html">Plan Outline</a></li>
+        <li class="navigation"><a href="travel.html">Travel Plan</a></li>
+      </ul> 
+    </div>
+    <header class="header">
+        <h2 style="margin-top:-8px;">Places To Visit</h2>
+        <input type="text" class="js-todo" id="myInput" name="place" placeholder="Places...">
+        <button type="submit" class="js-add" onclick="add(document.querySelector('input').value);
+        document.querySelector('.js-todo').value='';" >Add</button>
+        
+        <br>
+    </header>
+        <ul class="js-list">
+
+        </ul>
+        <button type="submit" class="clearbtn" onclick="clearTask()" >Remove All Places</button>
+        <script>
+            let tt;
+            tt= JSON.parse(localStorage.getItem('todo')) || [];
+            let i = 0;
+            console.log(tt);
+            document.querySelector('.js-list').innerHTML = ''
+            var myList = document.querySelector('.js-list');
+            for(let i = 0;i<tt.length;i++){
+                let j=i;
+                document.querySelector('.js-list').innerHTML += `<li>${tt[j]}<button class="delete-todo-button" onclick="deletetask(tt[i])">Delete</button></li> `
+               }
+            function add(todo){
+            i = tt.length;
+            console.log(todo);
+            if (todo === ''|| todo==null|| todo=="       ") {
+                alert("You must write something!");
+              } 
+            else if (tt.indexOf(todo)==-1){
+                tt.push(todo);
+                document.querySelector('.js-list').innerHTML += `<li>${tt[i]}<button class="delete-todo-button" onclick="deletetask(tt[i])">Delete</button></li> `}
+            else{
+                alert("Watch out! You are repeating a place on your list of destinations to visit.Let's keep things fresh and exciting by avoiding duplicates and seeking out new and thrilling locales!")
+                }
+             localStorage.setItem('todo',JSON.stringify(tt));
+        }
+        function clearTask(){
+            localStorage.clear();
+            tt=[];
+            document.querySelector('.js-list').innerHTML = ''
+            var myList = document.querySelector('.js-list');
+            for(let i = 0;i<tt.length;i++){
+                document.querySelector('.js-list').innerHTML += `<li>${tt[i]}</li>`
+            }
+        }
+        function deletetask(todo){
+            if(tt.indexOf(todo) != -1){
+                tt.splice(tt.indexOf(todo), 1);
+            }
+            localStorage.setItem('todo',JSON.stringify(tt));
+            document.querySelector('.js-list').innerHTML = ''
+            var myList = document.querySelector('.js-list');
+            for(let i = 0;i<tt.length;i++){
+                document.querySelector('.js-list').innerHTML += `<li>${tt[i]}<button class="delete-todo-button" onclick="deletetask(tt[i])">Delete</button></li>`
+            }
+        }
+    
+        </script>
+       
+    </header>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Plan</title>
+	<link rel="icon" href="icon2.png" type="image/x-icon">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-color: #0f0e0e;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			font-size: 36px;
+		}
+		h2{
+			background: -webkit-linear-gradient( rgb(29, 58, 226),white, rgb(122, 230, 20));
+			background-clip: text;
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+			
+
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 50px;
+			background-color: #fff;
+			box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+			text-align: center;
+		}
+		.para {
+			font-size: 18px;
+			line-height: 1.5;
+			margin: 20px 0;
+			margin-left: 40%;
+			color: honeydew;
+		}
+		.navigation {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #8b8383;
+		}
+
+		.navigation li {
+			float: left;
+		}
+
+		.navigation li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 20px 20px;
+			text-decoration: none
+		}
+
+		.navigation li a:hover {
+			background-color: #111;
+		}
+		.gradient-text {
+          background: -webkit-linear-gradient( rgb(245, 119, 218),white, rgb(230, 209, 20));
+		  background-clip: text;
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
+        }
+	</style>
+</head>
+<body>
+	<div class="navigation">
+		<ul>
+			<li class="navigation"><img src="icon2.png" alt="WanderLust Ways" height="70px" width="70px" style="clip-path: circle(50%);"></li>
+			<li class="navigation"><a href="main.html">Home</a></li>
+			<li class="navigation"><a href="India.html">Destinations in India</a></li>
+			<li class="navigation"><a href="world.html">Destinations in World</a></li>
+			<li class="navigation"><a href="tovisit.html">Places To Travel</a></li>
+			<li class="navigation"><a href="map.html">Map</a></li>
+			<li class="navigation"><a href="travel.html">Travel Plan</a></li>
+		</ul>
+	</div>
+	
+		<h1 style="margin-top: 10px;"><span class="gradient-text">Travel Plan</span></h1>
+		<div id="my-div">
+			
+			<p class="para" id="my-paragraph"></p>
+		</div>
+	 
+	<script>
+		
+		const locationData = JSON.parse(localStorage.getItem('todo')) || [];
+		var heading = document.getElementById("my-heading");
+		var paragraph = document.getElementById("my-paragraph");
+		if (locationData.indexOf("Paris") != -1) {
+			
+			
+			paragraph.innerHTML += `<h2 style="margin-left:-100px">Paris</h2><h4> Travel Through Air:</h4>Flights Available From:<ol><li>Bengaluru</li><li>New Delhi</li><li>Chennai</li><li>Mumbai</li><li>Hyderabad</li></ol>
+			<h4>Airports near Paris</h4><ol><li>Beauvais Tille(80km from Paris)</li><li>Charles de Gaulle(30Km from Paris)</li><li>Orly Airport(18Km from Paris)</li><li>Beauvais Tille(80km fro Paris)</li></ol>
+     <h4>Time Taken:</h4><p style="margin-left:20px">7-8 Hours</p>
+	 <h4>Best Time to Visit</h4><p style="margin-left:20px">February-April</p>
+	 <h4>Average cost</h4><p style="margin-left:20px">Rs.17,000</p>`;
+			
+			document.getElementById("my-div").style.display = "block";
+		} 
+		if (locationData.indexOf("Agra") != -1) {
+			
+			
+			paragraph.innerHTML += `<h2 style="margin-left:-100px">Agra</h2>
+			<h4>Airports near Agra</h4><ol><li>Delhi Airport(227km from Agra)</li><li>Agra Airport(5Km from Agra)</li></ol>
+            <h4>Time Taken:</h4><p style="margin-left:20px">4-5 Hours(by flight)</p><p style="margin-left:20px">2-36 hours (by train)</p>
+	        <h4>Best Time to Visit</h4><p style="margin-left:20px">October to March</p>
+			<h4>Aveage Cost</h4><p style="margin-left:20px">Rs.10,000</p>`;
+			
+			document.getElementById("my-div").style.display = "block";
+		} 
+		if (locationData.indexOf("Jaipur") != -1) {
+			
+			
+			paragraph.innerHTML += `<h2 style="margin-left:-100px">Jaipur</h2>
+			<h4>Airports near Jaipur</h4><ol><li>Sanganer Airport(10 km from Jaipur)</li><li>Delhi Airport(284km from Jaipur)</li></ol>
+            <h4>Time Taken:</h4><p style="margin-left:20px">1-2 Hours(by flight)</p><p style="margin-left:20px">2-37 hours (by train)</p>
+	        <h4>Best Time to Visit</h4><p style="margin-left:20px">November to March</p>
+			<h4>Aveage Cost</h4><p style="margin-left:20px">Rs.7,000</p>`;
+			
+			document.getElementById("my-div").style.display = "block";
+		} 
+		if (locationData.indexOf("Konark") != -1) {
+			
+			
+			paragraph.innerHTML += `<h2 style="margin-left:-100px">Konark</h2>
+			<h4>Airports near Konark</h4><ol><li>Biju Patnaik International Airport(62 km from Konark)</li></ol>
+            <h4> Time Taken:</h4><p style="margin-left:20px">2-4 Hours(by flight)</p><p style="margin-left:20px">2-24 hours (by train)</p>
+	        <h4>Best Time to Visit</h4><p style="margin-left:20px">September to March</p>
+			<h4>Aveage Cost</h4><p style="margin-left:20px">Rs.3,000</p>`;
+			
+			document.getElementById("my-div").style.display = "block";
+		} 
+		if (locationData.indexOf("Thanjavur") != -1) {
+			
+			
+			paragraph.innerHTML += `<h2 style="margin-left:-100px">Thanjavur</h2>
+			<h4>Airports near Thanjavur</h4><ol><li>Tiruchirappalli International Airport(61 km from Thanjavur)</li></ol>
+            <h4> Time Taken:</h4><p style="margin-left:20px">2-3 Hours(by flight)</p><p style="margin-left:20px">2-19 hours (by train)</p>
+	        <h4>Best Time to Visit</h4><p style="margin-left:20px">October to March</p>
+			<h4>Aveage Cost</h4><p style="margin-left:20px">Rs.2,000</p>`;
+			
+			document.getElementById("my-div").style.display = "block";
+		} 
+		if (locationData.indexOf("Alappuzha") != -1) {
+			
+			
+			paragraph.innerHTML += `<h2 style="margin-left:-100px">Alappuzha</h2>
+			<h4>Airports near Alappuzha</h4><ol><li>Cochin International Airport(75 km from Alappuzha)</li><li>Trivandrum International Airport(150 km from Alappuzha)</li></ol>
+            <h4> Time Taken:</h4><p style="margin-left:20px">2-4 Hours(by flight)</p><p style="margin-left:20px">2-18 hours (by train)</p>
+	        <h4>Best Time to Visit</h4><p style="margin-left:20px">November to February</p>
+			<h4>Aveage Cost</h4><p style="margin-left:20px">Rs.8,000</p>`;
+			
+			document.getElementById("my-div").style.display = "block";
+		} 
+		if (locationData.indexOf("New Delhi") != -1) {
+			
+			
+			paragraph.innerHTML += `<h2 style="margin-left:-100px">New Delhi</h2>
+			<h4>Airports near Delhi</h4><ol><li>Delhi Airport(10 km from Delhi)</li></ol>
+            <h4> Time Taken:</h4><p style="margin-left:20px">2-4 Hours(by flight)</p><p style="margin-left:20px">2-35 hours (by train)</p>
+	        <h4>Best Time to Visit</h4><p style="margin-left:20px">October to February</p>
+			<h4>Aveage Cost</h4><p style="margin-left:20px">Rs.11,000</p>`;
+			
+			document.getElementById("my-div").style.display = "block";
+		} 
+		if (locationData.indexOf("Mumbai") != -1) {
+			
+			
+			paragraph.innerHTML += `<h2 style="margin-left:-100px">Mumbai</h2>
+			<h4>Airports near Mumbai</h4><ol><li>Chhatrapati Shivaji Intenational Airport(15 km from Mumbai)</li></ol>
+            <h4> Time Taken:</h4><p style="margin-left:20px">2-3 Hours(by flight)</p><p style="margin-left:20px">2-38 hours (by train)</p>
+	        <h4>Best Time to Visit</h4><p style="margin-left:20px">June to December</p>
+			<h4>Aveage Cost</h4><p style="margin-left:20px">Rs.12,000</p>`;
+			
+			document.getElementById("my-div").style.display = "block";
+		} 
+		
+		
+	</script>
+	</body>
+   </html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <link rel = "icon" href ="icon2.png" type = "image/x-icon">
+    <style>
+     
+      #loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        width: 75px;
+        height: 75px;
+        margin: -76px 0 0 -76px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid rgb(199, 240, 171);
+        border-right: 16px solid rgb(195, 233, 27);
+        border-bottom: 16px solid rgb(248, 27, 200);
+        border-left: 16px solid rgb(161, 231, 243);
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+}
+.body{
+  
+    margin: 50px;
+    text-align: center;
+    background-color: #67f1f9;
+    background-image: url("bg3.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color:rgb(2, 10, 26);
+  
+}
+a:link {
+  color: rgb(1, 48, 9);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: rgb(236, 236, 224);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(230, 105, 21);
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: rgb(15, 25, 170);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+button {
+  background-color: #dce6e2;
+  color: rgb(14, 13, 13);
+  padding: 20px 20px;
+  margin: 18px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  margin-left: 30px;
+  text-align: center;
+}
+
+button:hover {
+  opacity: 0.8;
+  color: black;
+}
+form{
+  color:black;
+}
+
+#login-error-msg-holder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+#login-error-msg {
+  width: 23%;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8a0000;
+  border: 1px solid #8a0000;
+  background-color: #e58f8f;
+  opacity: 0;
+}
+#error-msg-second-line {
+  display: block;
+}
+
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+  
+    </style>
+
+</head>
+<body onload="myFunction()" style="margin:0;">
+
+    <div id="loader"></div>
+    
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+      <div class="body">
+      <h1 style="color: azure;">Login</h1><br>
+      <p style="color:black"> New Member ?<a href="signup.html" target="_blank">Sign Up</a>.</p>
+    
+    <br>
+    <br>
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+    
+      <centre>
+        <form name="myform" method="post"  onsubmit="return validateform()"  >  
+        <label for="Username"> User Name:</label><br>
+        <input type="email" name="Username" id="Username" placeholder="Enter Email" required><br>
+        <br>
+        <label for="Password">Password:</label><br>
+        <input type="password" name="password" id="password" placeholder="*******" required>
+        <br>
+      </centre>
+      <br>
+      <button type="submit">Log In</button>
+       </form>
+       <br>
+         <a href="forpass.html"> Forgot Password</a>
+       <br><br><br><br><br><br><br><br><br><br><br><br>
+       <br><br><br><br><br><br><br><br><br>
+
+
+    </div>
+  </div>
+    <script>
+    var myVar;
+    
+    function myFunction() {
+      myVar = setTimeout(showPage, 1000);
+    }
+    
+    function showPage() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("myDiv").style.display = "block";
+    } 
+    function validateform(){  
+      var name=document.myform.Username.value;  
+      var password=document.myform.password.value; 
+      const usname=JSON.parse(localStorage.getItem('username')) || [];
+      const pwd=JSON.parse(localStorage.getItem('password')) || []; 
+        
+      if (name==null || name=="     "){  
+        alert("Name can't be blank");  
+        return false;  
+      }else if(password.length<6){  
+        alert("Password must be at least 6 characters long.");  
+        return false;  
+        }  
+      else if(usname.indexOf(name) ==-1){
+        alert("First Time User? Please Sign Up");
+        window.location.href = "signup.html";
+        return false;
+      }
+      else {
+        let ind=usname.indexOf(name);
+        let pass=pwd[ind];
+        if (pass==password){
+          alert("Loged In Successfully");
+          window.location.href="main.html";
+          return false;
+        }
+        else {
+            alert("Wrong Password");
+            return false;
+        }
+        }
+      }
+     
+    </script>
+    
+</body>
+</html>

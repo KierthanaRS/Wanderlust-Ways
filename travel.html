@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navigation {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #8b8383;
+		}
+
+		.navigation li {
+			float: left;
+		}
+
+		.navigation li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 20px 20px;
+			text-decoration: none
+		}
+
+		.navigation li a:hover {
+			background-color: #111;
+		}
+		.gradient-text {
+          background: -webkit-linear-gradient( rgb(245, 119, 218),white, rgb(230, 209, 20));
+		  text-align: center;
+		  margin-left: 45%;
+          background-clip: text;
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
+        }
+        .container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 50px;
+			background-color: #fff;
+			box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+			text-align: center;
+		}
+		h2{
+			background: -webkit-linear-gradient( rgb(29, 58, 226),white, rgb(122, 230, 20));
+			background-clip: text;
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+		    margin-left: 47%;
+            font-size: 175%;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-color: #0f0e0e;
+		}
+		.image-container {
+		display: flex;
+		justify-content: space-between;
+		margin-left: 5%;
+		}
+		.alink{
+		
+		 justify-content: space-between;
+		 height: 70%;
+		 width: 80%;
+		 margin-left: 10px;
+		}
+    </style>
+</head>
+<body>
+	
+    <div class="navigation">
+		<ul>
+			<li class="navigation"><img src="icon2.png" alt="WanderLust Ways" height="70px" width="70px" style="clip-path: circle(50%);"></li>
+			<li class="navigation"><a href="main.html">Home</a></li>
+			<li class="navigation"><a href="India.html">Destinations in India</a></li>
+			<li class="navigation"><a href="world.html">Destinations in World</a></li>
+			<li class="navigation"><a href="tovisit.html">Places To Travel</a></li>
+			<li class="navigation"><a href="map.html">Map</a></li>
+		</ul>
+	</div>
+		<h1 style="margin-top: 10px;"><span class="gradient-text">Travel Plan</span></h1>
+		<div id="my-div">
+			<p id="my-paragraph"></p>
+		</div>
+		
+		
+        <script>
+		    const place=[];
+            const locationData = JSON.parse(localStorage.getItem('todo')) || [];
+            var paragraph = document.getElementById("my-paragraph");
+            if (locationData.indexOf("Paris") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Paris</h2>
+				<div class="image-container">
+					<a  class="alink" href="travel-paris.html"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="days-paris.html"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="food-paris.html"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Paris"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            }
+			if (locationData.indexOf("Agra") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Agra</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Agra"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Jaipur") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Jaipur</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Jaipur"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Konark") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Konark</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Konark"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Thanjavur") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Thanjavur</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Thanjavur"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Alappuzha") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Alappuzha</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Alappuzha"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("New Delhi") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>New Delhi</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=New Delhi"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Mumbai") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Mumbai</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Mumbai"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Chennai") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Chennai</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Chennai"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Kolkata") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Kolkata</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Kolkata"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Bangalore") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Bangalore</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Bangalore"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Pondicherry") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Pondicherry</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Pondicherry"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Goa") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Goa</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Goa"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Lakshadweep") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Lakshadweep</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Kavaratti, IN"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Vizag") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Vizag</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Visakhapatnam, IN"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+			if (locationData.indexOf("Gokarna") != -1) {
+                
+                
+                paragraph.innerHTML += `<h2>Gokarna</h2>
+				<div class="image-container">
+					<a  class="alink" href="#"><img src="travel.jpg" style="height:100%;width:80%; "></a>
+					<a class="alink" href="#"><img src="days.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="#"><img src="food.jpg" style="height:100%;width:80%;"></a>
+					<a class="alink" href="weather.html?city=Gokarna"><img src="weather.jpg" style="height:100%;width:80%;"></a>
+				</div>
+                `
+                
+                document.getElementById("my-div").style.display = "block";
+            } 
+
+        </script>
+    
+</body>
+</html>

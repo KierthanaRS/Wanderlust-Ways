@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations of world</title>
+    <link rel = "icon" href ="icon2.png" type = "image/x-icon">
+    <style>
+                body{
+                background-color:#0e0d0d;
+                }
+                ul {
+                            list-style-type: none;
+                            margin: 0;
+                            padding: 0;
+                            overflow: hidden;
+                            background-color: #8b8383;
+                            }
+        
+                li {
+                    float: left;
+                    }
+        
+                li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 20px 20px;
+                    text-decoration: none;
+                    }
+    
+                li a:hover {
+                background-color: #111;
+                }
+                .gradient-text {
+                background: -webkit-linear-gradient( rgb(255, 0, 0),rgb(247, 246, 248), rgb(0, 47, 255));
+                background-clip: text;
+                -webkit-background-clip:text;
+                -webkit-text-fill-color:transparent;
+                }
+                .flip-card {
+                box-shadow: 0 4px 8px 0 rgba(14, 218, 233, 0.2);
+                box-decoration-break: unset;
+                background-color:hotpink;
+                max-width: 275px;
+                margin: auto;
+                font-family: arial;
+                background-color: transparent;
+                perspective: 1000px;
+                flex-basis: calc(30% - 10px);
+                margin-left: 25px;
+                margin-right: 10px;
+                margin-bottom: 300px;
+                }
+                .flip-card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                }
+
+                .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+                }
+
+                .flip-card-front, .flip-card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                }
+
+                .flip-card-front {
+                background-color: #bbb;
+                color: black;
+                }
+
+                .flip-card-back {
+                background-color: #2980b9;
+                color: white;
+                transform: rotateY(180deg);
+                }
+                ol{
+                list-style-type:lower-latin;
+                margin-left: 120px;
+                padding: 0;
+                width: 105px;
+                color: aliceblue;
+                text-align: center;
+                
+                }
+                .place{
+                color: honeydew;
+                
+                }
+                .sub{
+                color:white;
+                background-color:rgb(59, 216, 236);
+                text-align: center;
+
+                }
+                .add button {
+                border: none;
+                outline: 0;
+                padding: 12px;
+                color: white;
+                background-color:rgb(59, 216, 236);
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+                font-size: 18px;
+                
+                }
+
+                .add button:hover {
+                opacity: 0.7;
+                }
+                .container {
+                display: flex;
+                flex-wrap: wrap;
+                }
+    
+</style>
+</head>
+<body>
+    <ul>
+        <li><img src="icon2.png" alt="WanderLust Ways" height="70px" width="70px" style="clip-path: circle(50%);"></li>
+        <li><a href="main.html">Home</a></li>
+        <li><a href="India.html">Destinations in India</a></li>
+        <li><a href="tovisit.html">Places To visit</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li ><a href="plan.html">Plan Outline</a></li>
+        <li ><a href="travel.html">Travel Plan</a></li>
+        <div id="product-container"></div>
+      </ul>
+      <h1 style="align-items: center;text-align: center; color: aliceblue;"> Tourist Destinations of the<span class="gradient-text"> World</span> </h1>
+      <div class="container">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="paris.jpg" alt="Avatar" style="width: 300px;height:200px;">
+              <h2 id="title" style="color: aliceblue;">Paris</h2>
+            </div>
+            <div class="flip-card-back">
+              <p class="sub">Places To visit</p>
+          <p><ol>
+            <li class="place">Eiffel Tower</li>
+            <li class="place">Louvre Museum</li>
+            <li class="place">Montmartre</li>
+          </ol></p>
+          <br>
+          <br>
+          <br>
+          <div class="add">
+          <p><button id="addButton" onclick="addToTravelList('Paris')">Add to Travel List</button></p></div>
+            </div>
+          </div>
+        </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="venice.jpg" alt="Avatar" style="width: 300px;height:200px;">
+                <h2 id="title" style="color: aliceblue;">Venice</h2>
+              </div>
+              <div class="flip-card-back">
+                <p class="sub">Places To visit</p>
+            <p><ol>
+              <li class="place">Rialto Bridge</li>
+              <li class="place">Saint Mark's Basilica</li>
+              <li class="place">Grand Canal</li>
+            </ol></p>
+            <br>
+            <br>
+            <br>
+            <div class="add">
+            <p><button id="addButton" onclick="addToTravelList('Venice')">Add to Travel List</button></p></div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="london.jpg" alt="Avatar" style="width: 300px;height:200px;">
+                <h2 id="title" style="color: aliceblue;">London</h2>
+              </div>
+              <div class="flip-card-back">
+                <p class="sub">Places To visit</p>
+            <p><ol>
+              <li class="place">Big Ben</li>
+              <li class="place">Harry Potter studio</li>
+              <li class="place">London Eye</li>
+            </ol></p>
+            <br>
+            <br>
+            <br>
+            <div class="add">
+            <p><button id="addButton" onclick="addToTravelList('London')">Add to Travel List</button></p></div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="rome.jpg" alt="Avatar" style="width: 300px;height:200px;">
+                <h2 id="title" style="color: aliceblue;">Rome</h2>
+              </div>
+              <div class="flip-card-back">
+                <p class="sub">Places To visit</p>
+            <p><ol>
+              <li class="place">Colosseum</li>
+              <li class="place">Spanish Steps</li>
+              <li class="place">Pantheon</li>
+            </ol></p>
+            <br>
+            <br>
+            <br>
+            <div class="add">
+            <p><button id="addButton" onclick="addToTravelList('Rome')">Add to Travel List</button></p></div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="barcelona.webp" alt="Avatar" style="width: 300px;height:200px;">
+                <h2 id="title" style="color: aliceblue;">Barcelona</h2>
+              </div>
+              <div class="flip-card-back">
+                <p class="sub">Places To visit</p>
+            <p><ol>
+              <li class="place">Park Güell</li>
+              <li class="place">Casa Batlló</li>
+              <li class="place">Sagrada Familia</li>
+            </ol></p>
+            <br>
+            <br>
+            <br>
+            <div class="add">
+            <p><button id="addButton" onclick="addToTravelList('Barcelona')">Add to Travel List</button></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="seoul.jpg" alt="Avatar" style="width: 300px;height:200px;">
+                <h2 id="title" style="color: aliceblue;">Seoul</h2>
+              </div>
+              <div class="flip-card-back">
+                <p class="sub">Places To visit</p>
+            <p><ol>
+              <li class="place">Lotte World</li>
+              <li class="place">Gangnam Station</li>
+              <li class="place">Olympic Park</li>
+            </ol></p>
+            <br>
+            <br>
+            <br>
+            <div class="add">
+            <p><button id="addButton" onclick="addToTravelList('Seoul')">Add to Travel List</button></p></div>
+              </div>
+            </div>
+          </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="tokyo.jpg" alt="Avatar" style="width: 300px;height:200px;">
+                  <h2 id="title" style="color: aliceblue;">Tokyo</h2>
+                </div>
+                <div class="flip-card-back">
+                  <p class="sub">Places To visit</p>
+              <p><ol>
+                <li class="place">Mt.Fuji</li>
+                <li class="place">Tokyo Skytree</li>
+                <li class="place">Sensō-ji</li>
+              </ol></p>
+              <br>
+              <br>
+              <br>
+              <div class="add">
+              <p><button id="addButton" onclick="addToTravelList('Tokyo')">Add to Travel List</button></p></div>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="kathmandu.webp" alt="Avatar" style="width: 300px;height:200px;">
+                  <h2 id="title" style="color: aliceblue;">Kathmandu</h2>
+                </div>
+                <div class="flip-card-back">
+                  <p class="sub">Places To visit</p>
+              <p><ol>
+                <li class="place">Buddha Stupa</li>
+                <li class="place">Garden of Dreams</li>
+                <li class="place">Kopan Monastery</li>
+              </ol></p>
+              <br>
+              <br>
+              <br>
+              <div class="add">
+              <p><button id="addButton" onclick="addToTravelList('Kathmandu')">Add to Travel List</button></p></div>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="hanoi.jpg" alt="Avatar" style="width: 300px;height:200px;">
+                  <h2 id="title" style="color: aliceblue;">Hanoi</h2>
+                </div>
+                <div class="flip-card-back">
+                  <p class="sub">Places To visit</p>
+              <p><ol>
+                <li class="place">Opera House</li>
+                <li class="place">Long Bien Bridge</li>
+                <li class="place">Hoàn Kiếm Lake</li>
+              </ol></p>
+              <br>
+              <br>
+              <br>
+              <div class="add">
+              <p><button id="addButton" onclick="addToTravelList('Hanoi')">Add to Travel List</button></p></div>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="shanghai.webp" alt="Avatar" style="width: 300px;height:200px;">
+                  <h2 id="title" style="color: aliceblue;">Shanghai</h2>
+                </div>
+                <div class="flip-card-back">
+                  <p class="sub">Places To visit</p>
+              <p><ol>
+                <li class="place">The Bund</li>
+                <li class="place">Jade Buddha Temple</li>
+                <li class="place">Shanghai Tower</li>
+              </ol></p>
+              <br>
+              <br>
+              <br>
+              <div class="add">
+              <p><button id="addButton" onclick="addToTravelList('Shanghai')">Add to Travel List</button></p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="newyork.jpg" alt="Avatar" style="width: 300px;height:200px;">
+                  <h2 id="title" style="color: aliceblue;">New York</h2>
+                </div>
+                <div class="flip-card-back">
+                  <p class="sub">Places To visit</p>
+              <p><ol>
+                <li class="place">Statue of Liberty</li>
+                <li class="place">Times Square</li>
+                <li class="place">Grand Central Terminal</li>
+              </ol></p>
+              <br>
+              <br>
+              <br>
+              <div class="add">
+              <p><button id="addButton" onclick="addToTravelList('New York')">Add to Travel List</button></p></div>
+                </div>
+              </div>
+            </div>
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="La.jpg" alt="Avatar" style="width: 300px;height:200px;">
+                    <h2 id="title" style="color: aliceblue;">Los Angels</h2>
+                  </div>
+                  <div class="flip-card-back">
+                    <p class="sub">Places To visit</p>
+                <p><ol>
+                  <li class="place">Griffith Observatory</li>
+                  <li class="place">Santa Monica Pier</li>
+                  <li class="place">Disneyland Park</li>
+                </ol></p>
+                <br>
+                <br>
+                <br>
+                <div class="add">
+                <p><button id="addButton" onclick="addToTravelList('Los Angels')">Add to Travel List</button></p></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="miami.jpg" alt="Avatar" style="width: 300px;height:200px;">
+                    <h2 id="title" style="color: aliceblue;">Miami</h2>
+                  </div>
+                  <div class="flip-card-back">
+                    <p class="sub">Places To visit</p>
+                <p><ol>
+                  <li class="place">Jungle Island</li>
+                  <li class="place">Little Havana</li>
+                  <li class="place">South Beach</li>
+                </ol></p>
+                <br>
+                <br>
+                <br>
+                <div class="add">
+                <p><button id="addButton" onclick="addToTravelList('Miami')">Add to Travel List</button></p></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="norway.webp" alt="Avatar" style="width: 300px;height:200px;">
+                    <h2 id="title" style="color: aliceblue;">Norway</h2>
+                  </div>
+                  <div class="flip-card-back">
+                    <p class="sub">Places To visit</p>
+                <p><ol>
+                  <li class="place">Lofoten</li>
+                  <li class="place">Oslo region</li>
+                  <li class="place">Bergen</li>
+                </ol></p>
+                <br>
+                <br>
+                <br>
+                <div class="add">
+                <p><button id="addButton" onclick="addToTravelList('Norway')">Add to Travel List</button></p></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="atlanta.jpg" alt="Avatar" style="width: 300px;height:200px;">
+                    <h2 id="title" style="color: aliceblue;">Atlanta</h2>
+                  </div>
+                  <div class="flip-card-back">
+                    <p class="sub">Places To visit</p>
+                <p><ol>
+                  <li class="place">Botanical Garden</li>
+                  <li class="place">Piedmont Park</li>
+                  <li class="place">3D Theater</li>
+                </ol></p>
+                <br>
+                <br>
+                <br>
+                <div class="add">
+                <p><button id="addButton" onclick="addToTravelList('Atlanta')">Add to Travel List</button></p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <script>
+          let tt= JSON.parse(localStorage.getItem('todo')) || [];
+        function addToTravelList(cardId){
+          if (tt.indexOf(cardId)==-1){
+            tt.push(cardId);
+          console.log(cardId)
+          console.log(tt)
+          localStorage.setItem('todo',JSON.stringify(tt))
+          console.log(localStorage)
+          }
+        }
+        </script>
+</body>
+</html>

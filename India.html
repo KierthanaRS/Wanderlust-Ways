@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Destinations in India</title>
+    <link rel = "icon" href ="icon2.png" type = "image/x-icon">
+    <style>
+      body{
+        background-color:#0e0d0d;
+      }
+        ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    background-color: #8b8383;
+                    }
+
+        li {
+            float: left;
+            }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            }
+
+        li a:hover {
+            background-color: #111;
+            }
+        ol{
+            list-style-type:lower-latin;
+            margin-left: 120px;
+            padding: 0;
+            width: 105px;
+            color: aliceblue;
+            text-align: center;
+            align-items: center;
+            }
+          .flip-card {
+          box-shadow: 0 4px 8px 0 rgba(14, 218, 233, 0.2);
+          box-decoration-break: unset;
+          background-color:hotpink;
+          max-width: 275px;
+          margin: auto;
+          font-family: arial;
+          background-color: transparent;
+          perspective: 1000px;
+          flex-basis: calc(30% - 10px);
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 300px;
+        }
+          .place{
+            color: honeydew;
+            text-align: center;
+            align-items:center;
+          }
+        .sub{
+          color:white;
+          background-color:rgb(59, 216, 236);
+          text-align: center;
+
+        }
+        .add button {
+          border: none;
+          outline: 0;
+          padding: 12px;
+          color: white;
+          background-color:rgb(59, 216, 236);
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          font-size: 18px;
+          
+        }
+
+        .add button:hover {
+          opacity: 0.7;
+        }
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .gradient-text {
+          background: -webkit-linear-gradient( #f90,white, #0f0);
+          background-clip: text;
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
+        }
+        
+
+        .flip-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.6s;
+          transform-style: preserve-3d;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+          transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+          background-color: #bbb;
+          color: black;
+        }
+
+        .flip-card-back {
+          background-color: #2980b9;
+          color: white;
+          transform: rotateY(180deg);
+        }
+    
+
+        
+    </style>
+  </head>
+  <body>
+    <ul>
+        <li><img src="icon2.png" alt="WanderLust Ways" height="70px" width="70px" style="clip-path: circle(50%);"></li>
+        <li><a href="main.html">Home</a></li>
+        <li><a href="world.html">Destinations in World</a></li>
+        <li><a href="tovisit.html">Places To visit</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="plan.html">Plan outline</a></li>
+        <li><a href="travel.html">Travel Plan</a></li>
+        <div id="product-container"></div>
+      </ul>
+      
+      <h1 style="align-items: center;text-align: center; color: aliceblue;"> Tourist Destinations in<span class="gradient-text"> India</span> </h1>
+      <div class="container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="agra.jpeg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Agra</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Taj Mahal</li>
+          <li class="place">Agra Fort</li>
+          <li class="place">Sikandra Fort</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Agra')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="jaipur.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Jaipur</h1>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Hawa Mahal</li>
+          <li class="place">Jantar Mantar</li>
+          <li class="place">Chokhi Dhani</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Jaipur')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="konark.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Konark</h1>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Konark Temple</li>
+          <li class="place">Ramchandi Beach</li>
+          <li class="place">ASI Museum</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Konark')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="thanjur.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Thanjavur</h1>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Brihadeesara Temple</li>
+          <li class="place">Big Temple</li>
+          <li class="place">Silver Beach</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Thanjavur')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="alleppey.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Alappuzha</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Vembanad Lake</li>
+          <li class="place">Pathiramanal Island</li>
+          <li class="place">Marari Beach</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Alappuzha')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="delhi.webp" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">New Delhi</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">India Gate</li>
+          <li class="place">Lotus Temple</li>
+          <li class="place">Humayun’s Tomb</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton"  onclick="addToTravelList('New Delhi')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="mumbai.webp" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Mumbai</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Gate way of India </li>
+          <li class="place">Elephat Caves</li>
+          <li class="place">SanjayGandhi Park</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Mumbai')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="Chennai.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Chennai</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Marina Beach </li>
+          <li class="place">Mahabalipuram</li>
+          <li class="place">T-Nagar</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Chennai')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="kolkatta.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Kolkata</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Victoria Memorial</li>
+          <li class="place">Howrah Bridge</li>
+          <li class="place">Eden Gardens</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Kolkata')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="bangalore.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Bangalore</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Ulsoor Lake</li>
+          <li class="place">Botanical Garden</li>
+          <li class="place">ISKON temple</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Bangalore')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="pondi.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Pondicherry</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Rock Beach</li>
+          <li class="place">Raj Nivas</li>
+          <li class="place">War Memorial</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Pondicherry')" >Add to Travel List</button></p>
+      </div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="goa.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Goa</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Canacona</li>
+          <li class="place">Bardex</li>
+          <li class="place">Panajim</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Goa')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="laks.webp" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Lakshadweep</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Agatti Island</li>
+          <li class="place">Kavaratti</li>
+          <li class="place">Minicoy</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Lakshadweep')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="vizag.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color: aliceblue;">Vizag</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Tenneti Park</li>
+          <li class="place">Yarada Beach</li>
+          <li class="place">Borra Caves</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Vizag')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="Gokarna.jpg" alt="Avatar" style="width: 300px;height:200px;">
+            <h2 id="title" style="color:aliceblue;">Gokarna</h2>
+          </div>
+          <div class="flip-card-back">
+            <p class="sub">Places To visit</p>
+        <p><ol>
+          <li class="place">Mahabaleshara Temple</li>
+          <li class="place">Kudle Beach</li>
+          <li class="place">Yana Caves</li>
+        </ol></p>
+        <br>
+        <br>
+        <br>
+        <div class="add">
+        <p><button id="addButton" onclick="addToTravelList('Gokarna')">Add to Travel List</button></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <script>
+         let tt= JSON.parse(localStorage.getItem('todo')) || [];
+        function addToTravelList(cardId){
+          if (tt.indexOf(cardId)==-1){
+            tt.push(cardId);
+            localStorage.setItem('todo',JSON.stringify(tt))
+          
+          }
+        }
+
+
+      </script>
+  </body>
+</html>

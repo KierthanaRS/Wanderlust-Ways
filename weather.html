@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1 id="place"></h1>
+  <div id="weather-container"></div>
+
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const API_KEY = '41d5c1ab38c8cca34e75049ffa27cfe2';
+    const CITY= urlParams.get('city');
+    const DAYS = 7;
+    document.getElementById('place').innerHTML=CITY;
+
+const weatherContainer = document.getElementById('weather-container');
+const tipContainer = document.getElementById('tip-container');
+
+const fetchData = async () => {
+  try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&appid=${API_KEY}&units=metric`);
+    const data = await response.json();
+    const weatherData = data.list.filter((item, index) => index % 8 === 0);
+    weatherContainer.innerHTML = weatherData.map((weather) => `
+      <div class="weather-card">
+        <h2>${new Date(weather.dt * 1000).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' })}</h2>
+        <img src="https://openweathermap.org/img/wn/${weather.weather[0].icon}.png" alt="${weather.weather[0].description}">
+        <p>${Math.round(weather.main.temp)}&deg;C</p>
+        <p>${weather.weather[0].description}</p>
+      </div>
+    `).join('');
+    const tip = getTip(weatherData);
+    tipContainer.innerText = tip;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getTip = (weatherData) => {
+  const weatherCode = weatherData[0].weather[0].id;
+  switch (weatherCode) {
+    case 800:
+      return 'It looks like it will be sunny today! Remember to wear sunscreen.';
+    case 801:
+      return 'It will be partly cloudy today. You might want to bring a light jacket.';
+    case 802:
+    case 803:
+    case 804:
+      return 'It looks like it will be cloudy today. You might want to bring an umbrella.';
+    case 500:
+    case 501:
+    case 502:
+    case 503:
+    case 504:
+      return 'It looks like it will rain today. Remember to bring an umbrella and raincoat.';
+    case 511:
+    case 600:
+    case 601:
+    case 602:
+      return 'It might snow today. Remember to wear warm clothes and bring a snow shovel.';
+    case 200:
+    case 201:
+    case 202:
+    case 230:
+    case 231:
+    case 232:
+    case 233:
+      return 'It looks like there will be a thunderstorm today. Remember to stay indoors.';
+    default:
+      return 'Have a great day!';
+  }
+};
+
+fetchData();
+
+  </script>
+</body>
+</html>

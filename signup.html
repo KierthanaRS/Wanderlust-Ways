@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel = "icon" href ="icon2.png" type = "image/x-icon">
+    <style>
+    body{
+    margin: 50px;
+    text-align: center;
+    background-color: #67f1f9;
+    background-image: url("bg3.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color:rgb(2, 10, 26);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .row {
+  background-color:#000;
+  color: #fff;
+  text-align: center;
+  padding: 2em 2em 0.5em;
+  width: 90%;
+  margin: 2em	auto;
+  border-radius: 5px; }
+  .row h1 {
+    font-size: 2.5em; }
+  .row .form-group {
+    margin: 0.5em 0; }
+    .row .form-group label {
+      display: block;
+      color: #fff;
+      text-align: left;
+      font-weight: 600; }
+    .row .form-group input, .row .form-group button {
+      display: block;
+      padding: 0.5em 0;
+      width: 100%;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+      background-color: inherit;
+      border: none;
+      border-bottom: 1px solid #555;
+      color: #eee; }
+      .row .form-group input:focus, .row .form-group button:focus {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        padding: 1em 0.5em; animation: pulse 1s infinite ease;}
+    .row .form-group button {
+      border: 1px solid #fff;
+      border-radius: 5px;
+      outline: none;
+      -moz-user-select: none;
+      user-select: none;
+      color: #333;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 2em;
+      padding: 1em; }
+      .row .form-group button:hover, .row .form-group button:focus {
+        background-color: #fff; }
+      .row .form-group button.is-loading::after {
+        animation: spinner 500ms infinite linear;
+        content: "";
+        position: absolute;
+        margin-left: 2em;
+        border: 2px solid #000;
+        border-radius: 100%;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        height: 1em;
+        width: 4%; }
+
+    </style>
+</head>
+<body>
+    <div class="row">
+        <h1>Sign Up Form</h1>
+        <form name="myform" method="post"  onsubmit="return validate()">
+        <hr>
+        <div class="form-group">
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" id="email" name="email" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="password" name="password" required>
+        <label for="repeatPassword"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" id="repeatePassword" name="repeatPassword"
+        required>
+        <button type="button" class="cancel" onclick="window.location.href='index.html'">Cancel</button>
+        
+        <button type="submit" class="signup" >Sign Up</button>
+        </div>
+    </form>
+        </div>
+        <script>
+            const usname=[];
+            const pwd=[];
+            function validate(){
+                var name=document.myform.email.value;
+                var password=document.myform.password.value;
+                var reppassword=document.myform.repeatePassword.value;
+                if(password.length<6){
+                  alert("Length of Passord must be greater than 6");
+                  return false;
+                }
+                else if (password !=reppassword){
+                    alert("Password Doesn't match");
+                    return false;
+                }
+                else{
+                    const usname=JSON.parse(localStorage.getItem('username')) || [];
+                    const pwd=JSON.parse(localStorage.getItem('password')) || [];
+                    if(usname.indexOf(name)==-1){
+                      usname.push(name);
+                      pwd.push(password);
+                    localStorage.setItem('username',JSON.stringify(usname));
+                    localStorage.setItem('password',JSON.stringify(pwd)); 
+                      const userData = {};
+                      userData[name] = password;
+                      location.replace("index.html");
+                      return false;
+                    }
+                    else{
+                      alert("User Id already Exsist");
+                      window.location.href="index.html";
+                      return false;
+                    }
+                    localStorage.setItem('username',JSON.stringify(usname));
+                    localStorage.setItem('password',JSON.stringify(pwd)); 
+                }
+
+            }
+        </script>
+    
+</body>
+</html>
